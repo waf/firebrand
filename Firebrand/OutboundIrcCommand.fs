@@ -10,6 +10,7 @@ type OutboundIrcCommand =
     | Join of String
     | OutMessage of String * String
 
+// convert an OutboundIrcCommand into a string that can be understood by an IRC server
 let serialize cmd = 
     match cmd with
     | Pong server -> "PONG " + server
