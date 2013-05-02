@@ -45,7 +45,8 @@
     <Compile Include="InboundIrcCommand.fs" />
     <Compile Include="OutboundIrcCommand.fs" />
     <Compile Include="IrcConnection.fs" />
-    <Compile Include="Bot.fs" />
+    <Compile Include="IrcBot.fs" />
+    <Compile Include="Firebrand.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
