@@ -26,14 +26,20 @@ let message cmd =
     | Join channel -> "JOIN " + channel
     | OutMessage (target, msg) -> "PRIVMSG " + target + " :" + msg
 
-let (|Match|_|) pattern input =
-    let m = Regex.Match(input, pattern) in
+let (|Match|_|) (pattern:Regex) input =
+    let m = pattern.Match(input) in
     if m.Success then Some (List.tail [ for g in m.Groups -> g.Value ]) else None
+
+module Pattern =    
+    let PING = Regex("PING (.*)")
+    let NOTICE = Regex(".* NOTICE (.*)")
+    let CHANNELMSG = Regex(".* PRIVMSG (#.*) :(.*)")
+    let USERMSG = Regex(":(.*)!.* PRIVMSG .* :(.*)")
 
 let parse (msg:String) = 
     match msg with
-        | Match "PING (.*)" server -> Ping(server.Head)
-        | Match ".* NOTICE (.*)" notice -> Notice(notice.Head)
-        | Match ".* PRIVMSG (#.*) :(.*)" pm-> ChannelMessage(pm.Head, pm.Tail.Head)
-        | Match ":(.*)!.* PRIVMSG .* :(.*)" pm-> UserMessage(pm.Head, pm.Tail.Head)
+        | Match Pattern.PING [server]-> Ping(server)
+        | Match Pattern.NOTICE [notice] -> Notice(notice)
+        | Match Pattern.CHANNELMSG [channel; msg] -> ChannelMessage(channel, msg)
+        | Match Pattern.USERMSG [user; msg] -> UserMessage(user, msg)
         | _ -> Unrecognized(msg)
