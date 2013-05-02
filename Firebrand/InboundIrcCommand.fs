@@ -3,6 +3,7 @@ module Firebrand.IrcCommand.Inbound
 
 open System
 open System.Text.RegularExpressions
+open Firebrand.Common
 
 type InboundIrcCommand =
     | Ping of String
@@ -10,17 +11,15 @@ type InboundIrcCommand =
     | ChannelMessage of String * String
     | UserMessage of String * String
     | Unrecognized of String
-        
-let (|Match|_|) (pattern:Regex) input =
-    let m = pattern.Match(input) in
-    if m.Success then Some (List.tail [ for g in m.Groups -> g.Value ]) else None
 
+// holds precompiled regexs for parsing
 module Pattern =    
     let PING = Regex("PING (.*)")
     let NOTICE = Regex(".* NOTICE (.*)")
     let CHANNELMSG = Regex(".* PRIVMSG (#.*) :(.*)")
     let USERMSG = Regex(":(.*)!.* PRIVMSG .* :(.*)")
 
+// convert an incoming line from the irc server into an InboundIrcCommand
 let parse (msg:String) = 
     match msg with
         | Match Pattern.PING [server]-> Ping(server)
