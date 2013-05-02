@@ -4,7 +4,9 @@ module Firebrand.IrcConnection
 open System
 open System.IO
 open System.Net.Sockets
-open IrcCommand
+open Firebrand.IrcCommand.Outbound
+open Firebrand.IrcCommand.Inbound
+
 
 type IrcConnection(server : String, port : int) = 
     let tcp = new TcpClient();
@@ -15,7 +17,7 @@ type IrcConnection(server : String, port : int) =
     
     // send an irc command to the server
     member this.Send(cmd) =
-        writer.WriteLine(message(cmd))
+        writer.WriteLine(serialize(cmd))
     
     // receive commands from the server
     member this.Stream() = 

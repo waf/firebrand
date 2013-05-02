@@ -1,31 +1,16 @@
-﻿// irc command parsing/serializing. See http://tools.ietf.org/html/rfc2812
-module Firebrand.IrcCommand
+﻿// irc command parsing. See http://tools.ietf.org/html/rfc2812
+module Firebrand.IrcCommand.Inbound
 
 open System
 open System.Text.RegularExpressions
 
-type InboundCommand =
+type InboundIrcCommand =
     | Ping of String
     | Notice of String
     | ChannelMessage of String * String
     | UserMessage of String * String
     | Unrecognized of String
         
-type OutboundCommand =
-    | Pong of String
-    | Nick of String
-    | User of String * String
-    | Join of String
-    | OutMessage of String * String
-
-let message cmd = 
-    match cmd with
-    | Pong server -> "PONG " + server
-    | Nick nick -> "NICK " + nick
-    | User (username, realname) -> sprintf "USER %s 8 * :%s" username realname
-    | Join channel -> "JOIN " + channel
-    | OutMessage (target, msg) -> "PRIVMSG " + target + " :" + msg
-
 let (|Match|_|) (pattern:Regex) input =
     let m = pattern.Match(input) in
     if m.Success then Some (List.tail [ for g in m.Groups -> g.Value ]) else None

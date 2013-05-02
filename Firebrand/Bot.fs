@@ -1,8 +1,9 @@
 ﻿module Firebrand.Bot
 
 open System
-open IrcCommand
-open IrcConnection
+open Firebrand.IrcCommand.Outbound
+open Firebrand.IrcCommand.Inbound
+open Firebrand.IrcConnection
 
 let server = "irc.freenode.net"
 let port = 6667

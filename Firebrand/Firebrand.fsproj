@@ -41,7 +41,8 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IrcCommand.fs" />
+    <Compile Include="InboundIrcCommand.fs" />
+    <Compile Include="OutboundIrcCommand.fs" />
     <Compile Include="IrcConnection.fs" />
     <Compile Include="Bot.fs" />
   </ItemGroup>
