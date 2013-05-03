@@ -1,9 +1,9 @@
 ﻿module Firebrand.IrcBot
 
 open System
-open Firebrand.IrcCommand.Outbound
-open Firebrand.IrcCommand.Inbound
-open Firebrand.IrcConnection
+open irclib.IrcCommand.Outbound
+open irclib.IrcCommand.Inbound
+open irclib.IrcConnection
 
 type BotName = { nick : String; username : String; realname : String }
 

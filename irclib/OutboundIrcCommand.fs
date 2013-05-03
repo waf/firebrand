@@ -1,5 +1,5 @@
 ﻿// irc command serializing. See http://tools.ietf.org/html/rfc2812
-module Firebrand.IrcCommand.Outbound
+module irclib.IrcCommand.Outbound
 
 open System
 

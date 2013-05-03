@@ -5,12 +5,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>faf0bef4-6592-4364-b12a-edf923ce7632</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>IRCBot</RootNamespace>
-    <AssemblyName>Firebrand</AssemblyName>
+    <ProjectGuid>b75f05fa-95b3-488d-a1b3-116293f8f647</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>irclib</RootNamespace>
+    <AssemblyName>irclib</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <Name>Firebrand</Name>
+    <Name>irclib</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,7 +20,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\IRCBot.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\irclib.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,7 +29,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\IRCBot.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\irclib.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -41,13 +41,14 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IrcBot.fs" />
-    <Compile Include="Firebrand.fs" />
+    <Compile Include="OutboundIrcCommand.fs" />
+    <Compile Include="InboundIrcCommand.fs" />
+    <Compile Include="IrcConnection.fs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\irclib\irclib.fsproj">
-      <Name>irclib</Name>
-      <Project>{b75f05fa-95b3-488d-a1b3-116293f8f647}</Project>
+    <ProjectReference Include="..\Common\Common.fsproj">
+      <Name>Common</Name>
+      <Project>{953d8f19-3237-4473-911e-b64ed6c54b87}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

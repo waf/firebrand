@@ -1,4 +1,4 @@
-﻿module Firebrand.Common
+﻿module Common.Extensions
 
 open System.Text.RegularExpressions
 

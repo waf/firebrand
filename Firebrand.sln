@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Web
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Firebrand", "Firebrand\Firebrand.fsproj", "{FAF0BEF4-6592-4364-B12A-EDF923CE7632}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "irclib", "irclib\irclib.fsproj", "{B75F05FA-95B3-488D-A1B3-116293F8F647}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Common", "Common\Common.fsproj", "{953D8F19-3237-4473-911E-B64ED6C54B87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{FAF0BEF4-6592-4364-B12A-EDF923CE7632}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAF0BEF4-6592-4364-B12A-EDF923CE7632}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAF0BEF4-6592-4364-B12A-EDF923CE7632}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B75F05FA-95B3-488D-A1B3-116293F8F647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B75F05FA-95B3-488D-A1B3-116293F8F647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B75F05FA-95B3-488D-A1B3-116293F8F647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B75F05FA-95B3-488D-A1B3-116293F8F647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{953D8F19-3237-4473-911E-B64ED6C54B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{953D8F19-3237-4473-911E-B64ED6C54B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{953D8F19-3237-4473-911E-B64ED6C54B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{953D8F19-3237-4473-911E-B64ED6C54B87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

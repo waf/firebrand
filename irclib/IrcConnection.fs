@@ -1,11 +1,11 @@
 ﻿// for sending/receiving irc commands
-module Firebrand.IrcConnection
+module irclib.IrcConnection
 
 open System
 open System.IO
 open System.Net.Sockets
-open Firebrand.IrcCommand.Outbound
-open Firebrand.IrcCommand.Inbound
+open irclib.IrcCommand.Outbound
+open irclib.IrcCommand.Inbound
 
 
 type IrcConnection(server : String, port : int) = 

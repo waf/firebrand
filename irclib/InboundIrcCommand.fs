@@ -1,9 +1,9 @@
 ﻿// irc command parsing. See http://tools.ietf.org/html/rfc2812
-module Firebrand.IrcCommand.Inbound
+module irclib.IrcCommand.Inbound
 
 open System
 open System.Text.RegularExpressions
-open Firebrand.Common
+open Common.Extensions
 
 type InboundIrcCommand =
     | Ping of String
